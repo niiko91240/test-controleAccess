@@ -18,6 +18,17 @@ class TestMain(unittest.TestCase):
         # ALORS cette porte s'ouvre
         self.assertTrue(lecteur.badge_detecte)
 
+    def test_detecter_badge_wrong(self):
+        # ETANT DONNE un lecteur n'ayant pas détecté un badge
+        lecteur = Lecteur()
+        # ET une porte lui étant liée
+        porte = Porte()
+        moteur = MoteurOuverture(porte)
+        # QUAND le moteur interroge le lecteur
+        moteur.interroger(lecteur)
+        # ALORS cette porte ne s'ouvre pas
+        self.assertFalse(lecteur.badge_detecte)
+
 
 
 if __name__ == '__main__':
