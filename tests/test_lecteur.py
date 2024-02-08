@@ -27,7 +27,7 @@ class TestMain(unittest.TestCase):
         # QUAND le moteur interroge le lecteur
         moteur.interroger(lecteur)
         # ALORS cette porte ne s'ouvre pas
-        self.assertFalse(lecteur.badge_detecte)
+        self.assertFalse(porte.statut_ouverture)
 
 
 
