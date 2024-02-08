@@ -58,6 +58,20 @@ class TestMain(unittest.TestCase):
         # ALORS cette porte ne s'ouvre pas
         self.assertFalse(porte.statut_ouverture)
 
+    def test_detecter_badge_bloque_debloque(self):
+        # ETANT DONNE un lecteur ayant détecté un badge bloqué puis débloqué
+        lecteur = Lecteur()
+        lecteur.bloque = True
+        lecteur.debloquer()
+        lecteur.detecter_badge()
+        # ET une porte lui étant liée
+        porte = Porte()
+        moteur = MoteurOuverture(porte)
+        # QUAND le moteur d'ouverture interroge ce lecteur
+        moteur.interroger(lecteur)
+        # ALORS cette porte s'ouvre
+        self.assertTrue(porte.statut_ouverture)
+
 
 
 if __name__ == '__main__':
