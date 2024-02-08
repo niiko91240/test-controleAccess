@@ -5,3 +5,9 @@ class Lecteur:
 
     def detecter_badge(self):
         self.badge_detecte = True
+
+    def bloquer(self):
+        self.bloque = True
+        
+    def debloquer(self):
+        self.bloque = False
