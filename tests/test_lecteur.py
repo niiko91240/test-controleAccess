@@ -47,7 +47,8 @@ class TestMain(unittest.TestCase):
 
     def test_detecter_badge_bloque(self):
         # ETANT DONNE un lecteur ayant détecté un badge bloqué
-        lecteur = Lecteur(True)
+        lecteur = Lecteur()
+        lecteur.bloque = True
         lecteur.detecter_badge()
         # ET une porte lui étant liée
         porte = Porte()
