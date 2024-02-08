@@ -16,7 +16,7 @@ class TestMain(unittest.TestCase):
         # QUAND le moteur d'ouverture interroge ce lecteur
         moteur.interroger(lecteur)
         # ALORS cette porte s'ouvre
-        self.assertTrue(lecteur.badge_detecte)
+        self.assertTrue(porte.statut_ouverture)
 
     def test_detecter_badge_wrong(self):
         # ETANT DONNE un lecteur n'ayant pas détecté un badge
