@@ -29,6 +29,22 @@ class TestMain(unittest.TestCase):
         # ALORS cette porte ne s'ouvre pas
         self.assertFalse(porte.statut_ouverture)
 
+    def test_detecter_badge_double_portes(self):
+        # ETANT DONNE un lecteur ayant détecté un badge
+        lecteur = Lecteur()
+        lecteur.detecter_badge()
+        # ET deux portes lui étant liées
+        porte = Porte(lecteur)
+        porte2 = Porte(lecteur)
+        moteur = MoteurOuverture(porte)
+        moteur2 = MoteurOuverture(porte2)
+        # QUAND les moteurs interrogent le lecteur
+        moteur.interroger(lecteur)
+        moteur2.interroger(lecteur)
+        # ALORS ces deux portes s'ouvrent
+        self.assertTrue(porte.statut_ouverture)
+        self.assertTrue(porte2.statut_ouverture)
+
 
 
 if __name__ == '__main__':
